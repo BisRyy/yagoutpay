@@ -27,7 +27,7 @@ app.get("/health", (req, res) => {
 });
 
 const MERCHANT_ID = process.env.MERCHANT_ID;
-const MERCHANT_KEY = process.env.MERCHANT_KEY;
+const MERCHANT_KEY = process.env.ENCRYPTION_KEY;
 const YAGOUT_UAT_URL =
   process.env.YAGOUT_UAT_URL ||
   "https://uatcheckout.yagoutpay.com/ms-transaction-core-1-0/paymentRedirection/checksumGatewayPage";

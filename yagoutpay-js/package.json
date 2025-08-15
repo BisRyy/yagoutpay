@@ -24,12 +24,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/yagoutpay-sdk-js.git"
+    "url": "https://github.com/bisryy/yagoutpay-sdk-js.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/yagoutpay-sdk-js/issues"
+    "url": "https://github.com/bisryy/yagoutpay-sdk-js/issues"
   },
-  "homepage": "https://github.com/yourusername/yagoutpay-sdk-js#readme",
+  "homepage": "https://github.com/bisryy/yagoutpay-sdk-js#readme",
   "engines": {
     "node": ">=18.0.0"
   },

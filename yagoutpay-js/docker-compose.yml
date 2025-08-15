@@ -3,10 +3,12 @@ services:
     build: .
     container_name: yagoutpay-js-demo
     ports:
-      - "3001:3000"
+      - "3000:3000"
     volumes:
       - ./demo:/app/demo
       - ./src:/app/src
+    env_file:
+      - .env
     restart: unless-stopped
     healthcheck:
       test:
