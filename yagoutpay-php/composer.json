@@ -1,0 +1,37 @@
+{
+  "name": "yagoutpay/php-sdk",
+  "description": "Lightweight, production-ready PHP SDK for YagoutPay Aggregator Hosted integration with AES-256-CBC encryption and SHA-256 hash verification.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "YagoutPay SDK Contributors",
+      "email": "support@yagoutpay.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "YagoutPay\\": "src/"
+    }
+  },
+  "keywords": [
+    "yagoutpay",
+    "payment",
+    "gateway",
+    "sdk",
+    "php",
+    "encryption",
+    "aes",
+    "sha256",
+    "ethiopia",
+    "fintech"
+  ],
+  "homepage": "https://github.com/yourusername/yagoutpay-php-sdk",
+  "support": {
+    "issues": "https://github.com/yourusername/yagoutpay-php-sdk/issues",
+    "source": "https://github.com/yourusername/yagoutpay-php-sdk"
+  }
+}
