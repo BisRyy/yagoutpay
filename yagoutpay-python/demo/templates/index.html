@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RideYagout - Book Your Ride</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <h1>🚗 Ride Yagout Python</h1>
+        <p>Book your ride with ease and comfort</p>
+      </div>
+
+      <div class="booking-form">
+        <form method="POST" action="/pay" id="bookingForm">
+          <!-- Ride Selection -->
+          <div class="form-section">
+            <h3>🚗 Choose Your Ride</h3>
+            <div class="ride-options">
+              <div
+                class="ride-card"
+                data-ride="economy"
+                data-base-price="150"
+                data-per-km="25"
+                data-eta="5-10 min"
+              >
+                <div class="ride-icon">🚗</div>
+                <div class="ride-name">Economy</div>
+                <div class="ride-description">
+                  Affordable rides for everyday trips
+                </div>
+                <div class="ride-price">ETB 150 + ETB 25/km</div>
+                <ul class="ride-features">
+                  <li>Air conditioning</li>
+                  <li>Clean vehicle</li>
+                  <li>Professional driver</li>
+                </ul>
+              </div>
+
+              <div
+                class="ride-card selected"
+                data-ride="comfort"
+                data-base-price="200"
+                data-per-km="35"
+                data-eta="3-7 min"
+              >
+                <div class="ride-icon">🚙</div>
+                <div class="ride-name">Comfort</div>
+                <div class="ride-description">
+                  Premium comfort with extra space
+                </div>
+                <div class="ride-price">ETB 200 + ETB 35/km</div>
+                <ul class="ride-features">
+                  <li>Larger vehicle</li>
+                  <li>Premium interior</li>
+                  <li>Priority pickup</li>
+                </ul>
+              </div>
+
+              <div
+                class="ride-card"
+                data-ride="premium"
+                data-base-price="300"
+                data-per-km="50"
+                data-eta="2-5 min"
+              >
+                <div class="ride-icon">🚘</div>
+                <div class="ride-name">Premium</div>
+                <div class="ride-description">
+                  Luxury rides for special occasions
+                </div>
+                <div class="ride-price">ETB 300 + ETB 50/km</div>
+                <ul class="ride-features">
+                  <li>Luxury vehicle</li>
+                  <li>Professional chauffeur</li>
+                  <li>Complimentary refreshments</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trip Details -->
+          <div class="form-section">
+            <h3>🛣️ Trip Details</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Pickup Location</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="pickup_address"
+                    value="Meskel Square, Addis Ababa"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Drop-off Location</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="dropoff_address"
+                    value="Addis Ababa Bole Airport"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Distance (km)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="distance"
+                    name="distance"
+                    value="12"
+                    min="1"
+                    step="0.1"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="customer_name"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    name="mobile_no"
+                    placeholder="09XXXXXXXX"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email_id"
+                    placeholder="Enter email address"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="popular-destinations">
+              <strong>Popular Destinations:</strong>
+              <button
+                type="button"
+                class="destination-btn"
+                onclick="setDestination('Addis Ababa Bole Airport')"
+              >
+                Addis Ababa Bole Airport
+              </button>
+              <button
+                type="button"
+                class="destination-btn"
+                onclick="setDestination('Meskel Square')"
+              >
+                Meskel Square
+              </button>
+              <button
+                type="button"
+                class="destination-btn"
+                onclick="setDestination('Unity Park')"
+              >
+                Unity Park
+              </button>
+              <button
+                type="button"
+                class="destination-btn"
+                onclick="setDestination('National Museum')"
+              >
+                National Museum
+              </button>
+            </div>
+          </div>
+
+          <!-- Price Summary -->
+          <div class="price-summary">
+            <h4>💰 Price Summary</h4>
+            <div class="price-breakdown">
+              <span>Base Fare:</span>
+              <span id="baseFare">ETB 200</span>
+            </div>
+            <div class="price-breakdown">
+              <span>Distance Charge:</span>
+              <span id="distanceCharge">ETB 420</span>
+            </div>
+            <div class="price-breakdown">
+              <span>Service Fee:</span>
+              <span>ETB 50</span>
+            </div>
+            <div class="price-breakdown total-price">
+              <span><strong>Total:</strong></span>
+              <span id="totalPrice"><strong>ETB 670</strong></span>
+            </div>
+            <div class="eta-display">
+              ⏰ Estimated arrival: <span id="eta">3-7 min</span>
+            </div>
+          </div>
+
+          <!-- Hidden fields -->
+          <input type="hidden" name="ride_type" id="rideType" value="comfort" />
+          <input type="hidden" name="amount" id="totalAmount" value="670" />
+
+          <div style="text-align: center; margin-top: 30px">
+            <button type="submit" class="btn-primary" id="bookRideBtn">
+              💳 Book & Pay Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let selectedRide = {
+        key: "comfort",
+        basePrice: 200,
+        perKm: 35,
+        eta: "3-7 min",
+      };
+      const serviceFee = 50;
+
+      // Ride selection
+      document.querySelectorAll(".ride-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          // Remove previous selection
+          document
+            .querySelectorAll(".ride-card")
+            .forEach((c) => c.classList.remove("selected"));
+
+          // Add selection to clicked card
+          this.classList.add("selected");
+
+          selectedRide = {
+            key: this.dataset.ride,
+            basePrice: parseInt(this.dataset.basePrice),
+            perKm: parseInt(this.dataset.perKm),
+            eta: this.dataset.eta,
+          };
+
+          // Update hidden fields
+          document.getElementById("rideType").value = selectedRide.key;
+
+          updatePriceSummary();
+          updateEta();
+        });
+      });
+
+      // Distance input
+      document
+        .getElementById("distance")
+        .addEventListener("input", function () {
+          updatePriceSummary();
+        });
+
+      // Update price summary
+      function updatePriceSummary() {
+        const distance =
+          parseFloat(document.getElementById("distance").value) || 0;
+
+        if (selectedRide) {
+          const baseFare = selectedRide.basePrice;
+          const distanceCharge = distance * selectedRide.perKm;
+          const total = baseFare + distanceCharge + serviceFee;
+
+          document.getElementById("baseFare").textContent = `ETB ${baseFare}`;
+          document.getElementById(
+            "distanceCharge"
+          ).textContent = `ETB ${distanceCharge}`;
+          document.getElementById(
+            "totalPrice"
+          ).innerHTML = `<strong>ETB ${total}</strong>`;
+          document.getElementById("totalAmount").value = total;
+        }
+      }
+
+      // Update ETA
+      function updateEta() {
+        if (selectedRide) {
+          document.getElementById("eta").textContent = selectedRide.eta;
+        }
+      }
+
+      // Set destination
+      function setDestination(destination) {
+        document.querySelector('input[name="dropoff_address"]').value =
+          destination;
+      }
+
+      // Form submission
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          // Show loading state
+          const submitBtn = document.getElementById("bookRideBtn");
+          submitBtn.innerHTML = "⏳ Processing...";
+          submitBtn.disabled = true;
+        });
+    </script>
+  </body>
+</html>

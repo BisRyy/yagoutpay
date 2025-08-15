@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ride Confirmed - RideYagout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .success-container {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+        margin: 20px;
+      }
+      .success-icon {
+        width: 100px;
+        height: 100px;
+        background: #28a745;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        font-size: 3rem;
+        color: white;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .success-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #28a745;
+        margin-bottom: 1rem;
+      }
+      .success-message {
+        color: #6b7280;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+      .driver-info {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px 0;
+      }
+      .driver-info h4 {
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      .driver-details {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .driver-avatar {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+      .driver-text h5 {
+        margin: 0;
+        font-weight: 600;
+      }
+      .driver-text p {
+        margin: 5px 0 0 0;
+        opacity: 0.9;
+      }
+      .order-details {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        text-align: left;
+      }
+      .order-detail {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .order-detail:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .detail-label {
+        font-weight: 600;
+        color: #343a40;
+      }
+      .detail-value {
+        color: #6c757d;
+      }
+      .status-badge {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        background: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+      }
+      .actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 12px 25px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .btn-primary:hover {
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      }
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #667eea;
+        color: #667eea;
+      }
+      .btn-outline:hover {
+        background: #667eea;
+        color: white;
+      }
+      @media (max-width: 768px) {
+        .success-container {
+          margin: 10px;
+          padding: 2rem;
+        }
+        .success-title {
+          font-size: 2rem;
+        }
+        .actions {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container">
+      <div class="success-icon">✅</div>
+      <h1 class="success-title">Ride Confirmed!</h1>
+      <p class="success-message">
+        Your ride has been successfully booked and payment completed.
+      </p>
+
+      <div class="driver-info">
+        <h4>👨‍💼 Your Driver</h4>
+        <div class="driver-details">
+          <div class="driver-avatar">👤</div>
+          <div class="driver-text">
+            <h5>Driver Name</h5>
+            <p>Vehicle: Toyota Corolla • License: ABC123</p>
+          </div>
+        </div>
+        <p>📞 <strong>+251 911 123 456</strong></p>
+        <p>⏰ <strong>Arriving in 5-10 minutes</strong></p>
+      </div>
+
+      <div class="order-details">
+        <h4 style="margin-bottom: 1rem; color: #343a40">📋 Booking Details</h4>
+        <div class="order-detail">
+          <span class="detail-label">Booking ID:</span>
+          <span class="detail-value">{{ order_no }}</span>
+        </div>
+        <div class="order-detail">
+          <span class="detail-label">Service:</span>
+          <span class="detail-value">RideYagout - {{ ride_type }}</span>
+        </div>
+        <div class="order-detail">
+          <span class="detail-label">Amount Paid:</span>
+          <span class="detail-value">{{ amount }} ETB</span>
+        </div>
+        <div class="order-detail">
+          <span class="detail-label">Status:</span>
+          <span class="status-badge">SUCCESS</span>
+        </div>
+      </div>
+
+      <div
+        style="
+          background: #d4edda;
+          border: 1px solid #c3e6cb;
+          border-radius: 10px;
+          padding: 15px;
+          margin-bottom: 2rem;
+        "
+      >
+        <p style="color: #155724; margin: 0">
+          📧 A confirmation email has been sent to your registered email
+          address.
+        </p>
+      </div>
+
+      <div class="actions">
+        <a href="/" class="btn btn-primary">🚗 Book Another Ride</a>
+        <a href="#" class="btn btn-outline">📞 Contact Support</a>
+      </div>
+    </div>
+
+    <script>
+      // Create confetti effect
+      function createConfetti() {
+        const colors = ["#28a745", "#20c997", "#17a2b8", "#6f42c1", "#fd7e14"];
+
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement("div");
+          confetti.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 10px;
+                    background: ${
+                      colors[Math.floor(Math.random() * colors.length)]
+                    };
+                    left: ${Math.random() * 100}%;
+                    animation: confetti-fall 3s linear infinite;
+                    animation-delay: ${Math.random() * 3}s;
+                    animation-duration: ${Math.random() * 3 + 2}s;
+                    z-index: 1000;
+                `;
+
+          document.body.appendChild(confetti);
+
+          setTimeout(() => {
+            confetti.remove();
+          }, 5000);
+        }
+      }
+
+      // Add confetti animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes confetti-fall {
+                0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Trigger confetti on page load
+      setTimeout(createConfetti, 500);
+
+      // Auto-redirect after 30 seconds
+      let countdown = 30;
+      const countdownElement = document.createElement("div");
+      countdownElement.style.cssText =
+        "color: #6c757d; font-size: 0.9rem; margin-top: 1rem;";
+      countdownElement.innerHTML = `Redirecting to home page in <span id="countdown">${countdown}</span> seconds...`;
+
+      document.querySelector(".actions").appendChild(countdownElement);
+
+      const timer = setInterval(() => {
+        countdown--;
+        const countdownSpan = document.getElementById("countdown");
+        if (countdownSpan) {
+          countdownSpan.textContent = countdown;
+        }
+
+        if (countdown <= 0) {
+          clearInterval(timer);
+          window.location.href = "/";
+        }
+      }, 1000);
+
+      // Clear timer if user clicks any button
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("click", () => clearInterval(timer));
+      });
+    </script>
+  </body>
+</html>
