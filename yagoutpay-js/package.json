@@ -40,8 +40,8 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "start:demo": "node demo/server.js",
-    "dev": "node --watch demo/server.js",
+    "start:demo": "cd demo && node server.js",
+    "dev": "cd demo && node --watch server.js",
     "test": "echo \"No tests specified\" && exit 0",
     "test:watch": "echo \"No tests specified\" && exit 0",
     "test:coverage": "echo \"No tests specified\" && exit 0",
