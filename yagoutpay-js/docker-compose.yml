@@ -1,0 +1,40 @@
+services:
+  yagoutpay-js-demo:
+    build: .
+    container_name: yagoutpay-js-demo
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./demo:/app/demo
+      - ./src:/app/src
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy with nginx for production
+  nginx:
+    image: nginx:alpine
+    container_name: yagoutpay-js-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - yagoutpay-js-demo
+    restart: unless-stopped
+    profiles:
+      - production
+
+networks:
+  default:
+    name: yagoutpay-js-network
