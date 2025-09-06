@@ -1,6 +1,6 @@
 # YagoutPay SDK Collection
 
-A comprehensive collection of SDKs for integrating YagoutPay payment gateway into your applications. This repository contains official SDKs for JavaScript, PHP, and Python, each with modern implementations, secure encryption, and beautiful demo applications.
+A comprehensive collection of SDKs for integrating YagoutPay payment gateway into your applications. This repository contains official SDKs for JavaScript, PHP, Python, and .NET, each with modern implementations, secure encryption, and beautiful demo applications.
 
 ## Quick Setup
 
@@ -41,6 +41,13 @@ A comprehensive collection of SDKs for integrating YagoutPay payment gateway int
    # Edit .env with your credentials
    docker-compose up -d --build
    # Access at http://localhost:8080
+
+   # For .NET SDK
+   cd ../yagoutpay-dotnet
+   cp env.example .env
+   # Edit .env with your credentials
+   docker-compose up -d --build
+   # Access at http://localhost:5001
    ```
 
 3. **Environment Variables**
@@ -59,6 +66,7 @@ A comprehensive collection of SDKs for integrating YagoutPay payment gateway int
 | [JavaScript SDK](./yagoutpay-js/) | JavaScript | 3000 | Ride Booking |
 | [PHP SDK](./yagoutpay-php/)       | PHP        | 8000 | Ride Booking |
 | [Python SDK](./yagoutpay-python/) | Python     | 8080 | Ride Booking |
+| [.NET SDK](./yagoutpay-dotnet/)   | .NET       | 5001 | Ride Booking |
 
 ## Features
 
@@ -89,6 +97,7 @@ docker-compose down && docker-compose up -d --build
 - [JavaScript SDK Documentation](./yagoutpay-js/README.md)
 - [PHP SDK Documentation](./yagoutpay-php/README.md)
 - [Python SDK Documentation](./yagoutpay-python/README.md)
+- [.NET SDK Documentation](./yagoutpay-dotnet/README.md)
 
 ## Support
 

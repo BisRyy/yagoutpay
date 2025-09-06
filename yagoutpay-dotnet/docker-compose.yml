@@ -1,0 +1,10 @@
+services:
+  yagoutpay-demo:
+    build: .
+    ports:
+      - "5001:8080"
+    environment:
+      - MERCHANT_ID=${MERCHANT_ID}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - BASE_URL=${BASE_URL:-http://localhost:5001}
+      - ENVIRONMENT=${ENVIRONMENT:-test}
